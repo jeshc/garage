@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>id</th>
+        <th>first</th>
+        <th>last</th>
+        <th>mobile</th>
+        <th>email</th>
+        <th>password</th>
+        <th>licence</th>
+        <th>Profile</th>
+    </tr>
+<th:block th:each="client : ${clients}">
+    <tr>
+        <td th:text="${client.getIdclients()}" ></td>
+        <td th:text="${client.getFistName()}" ></td>
+        <td th:text="${client.getLastName()}" ></td>
+        <td th:text="${client.getMobileNumber()}" ></td>
+        <td th:text="${client.getEmail()}" ></td>
+        <td th:text="${client.getPaassword()}" ></td>
+        <td th:text="${client.getLicence()}" ></td>
+        <td th:text="${client.getProfile()}" ></td>
+    </tr>
+</th:block>
+</table>
+</body>
+</html>
