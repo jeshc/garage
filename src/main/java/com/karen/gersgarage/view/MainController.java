@@ -23,10 +23,7 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
+
 
     @GetMapping("/manageBooking")
     public String manageBooking() {
@@ -46,4 +43,5 @@ public class MainController {
         model.addAttribute("clients", clientRepository.findAll());
         return "test";
     }
+
 }

@@ -1,25 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>ok</title>
 </head>
 <body>
-<form action="/dologin" method="POST">
-    <div class="mb-3 mt-3">
-        <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-    </div>
-    <div class="mb-3">
-        <label for="paassword">Password:</label>
-        <input type="password" class="form-control" id="paassword" placeholder="Enter password" name="paassword">
-    </div>
-    <div class="form-check mb-3">
-        <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" name="remember"> Remember me
-        </label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<div sec:authorize="isAuthenticated()">
+    <p>¡Hola, estás autenticado!</p>
+</div>
 </body>
 </html>
