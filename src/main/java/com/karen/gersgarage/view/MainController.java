@@ -5,6 +5,7 @@ import com.karen.gersgarage.services.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,7 @@ public class MainController {
     @Autowired
     ClientRepository clientRepository;
 
-    @GetMapping("/")
+    @GetMapping("/index")
     public String index() {
         return "index";
     }
@@ -42,6 +43,22 @@ public class MainController {
         logger.info("Test"+clientRepository.findAll());
         model.addAttribute("clients", clientRepository.findAll());
         return "test";
+    }
+
+    @GetMapping("/work")
+    public String work(Model model) {
+        logger.info("Work" + "en work");
+        model.addAttribute("clients", clientRepository.findAll());
+        return "work";
+    }
+
+    @ExceptionHandler({Exception.class})
+
+    @GetMapping("/error")
+    public String error(Model model, Exception e) {
+        logger.info("Error");
+        model.addAttribute("error", e.getMessage());
+        return "error";
     }
 
 }

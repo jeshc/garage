@@ -16,7 +16,7 @@ import lombok.*;
 public class Client {
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
-    private int idclients;
+    private int id;
     private String fistName;
     private String lastName;
     private String mobileNumber;
